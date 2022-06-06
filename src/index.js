@@ -5,13 +5,8 @@ import GreeterJSON from '../artifacts/contracts/Greeter.sol/Greeter.json'
 const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 
-const greeterAddr = '0xed0EFB0A9F03120887090D991Bfac469c7BC434a'
+const greeterAddr = 'FILL_ME_IN_AFTER_DEPLOY'
 const contract = new ethers.Contract(greeterAddr, GreeterJSON.abi, provider);
-
-// Read on-chain data when clicking a button
-// getGreeting.addEventListener('click', async () => {
-//   greetingMsg.innerText = await contract.greet()
-// })
 
 // For playing around with in the browser
 window.ethers = ethers
@@ -19,14 +14,24 @@ window.provider = provider
 window.signer = signer
 window.contract = contract
 
-provider.on("block", n => console.log("New block", n))
-
 // Kick things off
 go()
+
 
 async function go() {
   await connectToMetamask()
   //console.log("Greeter greeting", await contract.greet())
+  //provider.on("block", n => console.log("New block", n))
+
+  // Read on-chain data when clicking a button
+  // getGreeting.addEventListener('click', async () => {
+  //   greetingMsg.innerText = await contract.greet()
+  // })
+
+  // submit.addEventListener('click', async (input) => {
+  //   console.log("input: ", input.value)
+  //   await contract.connect(signer).setGreeting(input.value)
+  // })
 }
 
 async function connectToMetamask() {
