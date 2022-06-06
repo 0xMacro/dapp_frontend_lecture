@@ -2,6 +2,8 @@
 
 ## Setup
 
+`yarn install`
+
 ### Deploy Contract
 
 `npx hardhat run scripts/deploy.ts --network rinkeby`
