@@ -5,7 +5,9 @@ import GreeterJSON from '../artifacts/contracts/Greeter.sol/Greeter.json'
 const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 
-const greeterAddr = 'FILL_ME_IN_AFTER_DEPLOY'
+// First deploy using deploy.ts, then copy the address here
+const greeterAddr = 'TODO'
+
 const contract = new ethers.Contract(greeterAddr, GreeterJSON.abi, provider);
 
 // For playing around with in the browser
@@ -20,8 +22,12 @@ go()
 
 async function go() {
   await connectToMetamask()
-  //console.log("Greeter greeting", await contract.greet())
-  //provider.on("block", n => console.log("New block", n))
+
+  // console.log("Greeter greeting", await contract.greet())
+
+  // provider.on("block", n => console.log("New block", n))
+
+  // valueOutput.innerText = await contract.greet()
 
   // Read on-chain data when clicking a button
   // getGreeting.addEventListener('click', async () => {

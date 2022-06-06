@@ -8,5 +8,5 @@ typechain
 cache
 artifacts
 
-.parcel
+.parcel*
 dist/
