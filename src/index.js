@@ -23,21 +23,18 @@ go()
 async function go() {
   await connectToMetamask()
 
-  // console.log("Greeter greeting", await contract.greet())
+  console.log("Greeter greeting", await contract.greet())
 
-  // provider.on("block", n => console.log("New block", n))
+  //valueOutput.innerText = await contract.greet()
 
-  // valueOutput.innerText = await contract.greet()
-
-  // Read on-chain data when clicking a button
-  // getGreeting.addEventListener('click', async () => {
-  //   greetingMsg.innerText = await contract.greet()
-  // })
-
-  // submit.addEventListener('click', async (input) => {
+  // submit.addEventListener('click', async () => {
   //   console.log("input: ", input.value)
   //   await contract.connect(signer).setGreeting(input.value)
+
+  //   // valueOutput.innerText = await contract.greet()
   // })
+
+  // provider.on("block", n => console.log("New block", n))
 }
 
 async function connectToMetamask() {
