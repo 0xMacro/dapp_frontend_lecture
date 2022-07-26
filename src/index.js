@@ -6,7 +6,7 @@ const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 
 // First deploy using deploy.ts, then copy the address here
-const greeterAddr = 'TODO'
+const greeterAddr = '0x74d9006CD74843bdd4928859814935a551d7918D'
 
 const contract = new ethers.Contract(greeterAddr, GreeterJSON.abi, provider);
 
@@ -25,14 +25,16 @@ async function go() {
 
   console.log("Greeter greeting", await contract.greet())
 
-  //valueOutput.innerText = await contract.greet()
+  valueOutput.innerText = await contract.greet()
 
-  // submit.addEventListener('click', async () => {
-  //   console.log("input: ", input.value)
-  //   await contract.connect(signer).setGreeting(input.value)
+  submit.addEventListener('click', async () => {
+    console.log("input: ", input.value)
+    const txReceipt = await contract.connect(signer).setGreeting(input.value)
+    await txReceipt.wait()
 
-  //   // valueOutput.innerText = await contract.greet()
-  // })
+    
+    valueOutput.innerText = await contract.greet()
+  })
 
   // provider.on("block", n => console.log("New block", n))
 }

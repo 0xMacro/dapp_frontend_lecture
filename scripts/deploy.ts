@@ -15,7 +15,7 @@ async function main() {
 
   // We get the contract to deploy
   const Greeter = await ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Block 6!");
+  const greeter = await Greeter.deploy("Hello, Block 7!");
 
   await greeter.deployed();
 
