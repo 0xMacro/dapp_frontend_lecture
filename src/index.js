@@ -6,7 +6,7 @@ const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 
 // First deploy using deploy.ts, then copy the address here
-const greeterAddr = '0x74d9006CD74843bdd4928859814935a551d7918D'
+const greeterAddr = '0x6005c9Af6B4d515aE8A0F745CBb0b6168Ae044Ee'
 
 const contract = new ethers.Contract(greeterAddr, GreeterJSON.abi, provider);
 
@@ -29,11 +29,19 @@ async function go() {
 
   submit.addEventListener('click', async () => {
     console.log("input: ", input.value)
-    const txReceipt = await contract.connect(signer).setGreeting(input.value)
-    await txReceipt.wait()
+    try {
+      const txReceipt = await contract.connect(signer).setGreeting(input.value)
+      await txReceipt.wait()
+      valueOutput.innerText = await contract.greet()
 
-    
-    valueOutput.innerText = await contract.greet()
+    } catch (e) {
+      // TODO: properly display this error to the user.
+      // For now, we simply log it
+
+      const errorDescription = contract.interface.parseError(e.error.data.originalError.data)
+      console.log(errorDescription)
+    }
+
   })
 
   // provider.on("block", n => console.log("New block", n))

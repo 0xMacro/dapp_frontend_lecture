@@ -1,6 +1,8 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
+error InvalidGreeting(uint256 len, string str);
+
 contract Greeter {
     string private greeting;
 
@@ -13,7 +15,7 @@ contract Greeter {
     }
 
     function setGreeting(string memory _greeting) public {
-        require(bytes(_greeting).length > 3, "Greeter: greeting is too small");
+        if (bytes(_greeting).length <= 3) revert InvalidGreeting(bytes(_greeting).length, _greeting);
         greeting = _greeting;
     }
 }
