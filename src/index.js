@@ -5,7 +5,7 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
 
 // First deploy using deploy.ts, then copy the address here
-const greeterAddr = "0x6005c9Af6B4d515aE8A0F745CBb0b6168Ae044Ee";
+const greeterAddr = "0x8C2354B34d24C631769A847B578f1C5275c88805";
 
 const contract = new ethers.Contract(greeterAddr, GreeterJSON.abi, provider);
 
@@ -34,6 +34,8 @@ async function go() {
     } catch (e) {
       // TODO: properly display this error to the user.
       // For now, we simply log it
+
+      console.log(e)
 
       const errorDescription = contract.interface.parseError(
         e.error.data.originalError.data
