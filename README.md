@@ -6,7 +6,7 @@
 
 ### Deploy Contract
 
-`npx hardhat run scripts/deploy.ts --network goerli`
+`npx hardhat run scripts/deploy.ts --network sepolia`
 
 ### Build Frontend
 
