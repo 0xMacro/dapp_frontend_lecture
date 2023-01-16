@@ -5,7 +5,7 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
 
 // First deploy using deploy.ts, then copy the address here
-const greeterAddr = "0x8C2354B34d24C631769A847B578f1C5275c88805";
+const greeterAddr = "0xe74fb8A556798ed074581bf24AFa51aCfa446c5E";
 
 const contract = new ethers.Contract(greeterAddr, GreeterJSON.abi, provider);
 
